@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "ANALYZE=true npm run build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
+    "@next/bundle-analyzer": "^14.0.3",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
