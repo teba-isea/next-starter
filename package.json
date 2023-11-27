@@ -15,7 +15,11 @@
     "storybook:build": "storybook build",
     "storybook:test": "test-storybook",
     "e2e:headless": "playwright test",
-    "e2e:ui": "playwright test --ui"
+    "e2e:ui": "playwright test --ui",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.7.1",
@@ -44,14 +48,20 @@
     "@storybook/react": "^7.5.3",
     "@storybook/test-runner": "^0.15.2",
     "@storybook/testing-library": "^0.2.2",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/ui": "^0.34.6",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-storybook": "^0.6.15",
+    "happy-dom": "^12.10.3",
     "husky": "^8.0.0",
     "lint-staged": "^15.1.0",
     "postcss": "^8",
@@ -59,7 +69,9 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "storybook": "^7.5.3",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^0.34.6"
   },
   "engines": {
     "node": ">=20"
