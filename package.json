@@ -13,7 +13,9 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "storybook:test": "test-storybook"
+    "storybook:test": "test-storybook",
+    "e2e:headless": "playwright test",
+    "e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.7.1",
