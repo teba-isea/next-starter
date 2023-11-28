@@ -1,5 +1,5 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/teba-isea/next-starter/blob/main/README.md)
-[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/teba-isea/next-starter/blob/master/README.es.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/teba-isea/next-starter/blob/main/README.es.md)
 
 # 🚀 Welcome to Next-Starter
 

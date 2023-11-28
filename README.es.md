@@ -1,5 +1,5 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/teba-isea/next-starter/blob/main/README.md)
-[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/teba-isea/next-starter/blob/master/README.es.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/teba-isea/next-starter/blob/main/README.es.md)
 
 # 🚀 Bienvenido a Next-Starter
 
@@ -7,7 +7,7 @@ Next-Starter es una plantilla de inicio adaptable y ligeramente preconfigurada p
 
 Esta plantilla facilita el rápido despliegue de un proyecto Next.js con una configuración sólida y un diseño minimalista, todo para proporcionarte una experiencia de desarrollo sin fisuras en aplicaciones Next del mundo real.
 
-"Suavemente preconfigurada" significa que, a pesar de que creemos en tu libertad para seleccionar tus propias herramientas, hemos tomado decisiones informadas para simplificar tu proceso de desarrollo. La plantilla incluye configuraciones predeterminadas razonables para:
+"Ligeramente preconfigurada" significa que, a pesar de que creemos en tu libertad para seleccionar tus propias herramientas, hemos tomado decisiones informadas para simplificar tu proceso de desarrollo. La plantilla incluye configuraciones predeterminadas razonables para:
 
 ## 🌟 Características
 
