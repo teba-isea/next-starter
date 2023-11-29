@@ -2,17 +2,18 @@ import React from "react"
 import { cva, VariantProps } from "class-variance-authority"
 
 export const buttonVariants = cva(
-  "rounded-lg font-semibold text-lg font-mono",
+  "rounded font-semibold text-lg font-mono mx-1 text-sm transition-colors",
   {
     variants: {
       variant: {
-        primary: "bg-cyan-500 text-white hover:bg-cyan-600",
+        primary: "bg-gray-700 text-white hover:bg-gray-800",
         secondary: "bg-slate-300 text-white hover:bg-slate-600",
+        ghost: "bg-transparent border border-gray-700 ",
       },
       size: {
-        lg: "py-4 px-8",
-        md: "py-3 px-6",
-        sm: "py-2 px-4",
+        lg: "py-3 px-6",
+        md: "py-2 px-4",
+        sm: "py-1 px-3",
       },
     },
     defaultVariants: {
@@ -25,6 +26,8 @@ export const buttonVariants = cva(
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     label: string
+    leftIcon?: React.ReactNode
+    rightIcon?: React.ReactNode
   }
 /**
  * Primary UI component for user interaction
@@ -34,6 +37,8 @@ export const Button = ({
   variant = "primary",
   size = "md",
   label,
+  leftIcon,
+  rightIcon,
   ...props
 }: ButtonProps) => {
   return (
@@ -42,7 +47,9 @@ export const Button = ({
       className={buttonVariants({ variant, size })}
       {...props}
     >
+      {leftIcon ? leftIcon : null}
       {label}
+      {rightIcon ? rightIcon : null}
     </button>
   )
 }

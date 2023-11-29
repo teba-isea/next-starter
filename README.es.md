@@ -52,10 +52,10 @@ Como su sitio web oficial indica [@t3-oss/env-core](https://env.t3.gg/) :
 
 Ademas de ello, contaremos con autocompletado por parte de typecript al momento de acceder a ellas y en caso de que llegase a faltar alguna de las variables de entorno definidas en el esquema, saltaria un error advirtiendonos de ello, bien sea por que no la definimos o no cumple con el tipo, la longitud o cualquier otra regla que hayamos definido en nuestro esquema con `zod`, por que si, usa `zod` under the hood.
 
-Bien, ahora como definiriamos dichas variables de entorno? el esquema se encuetra en el archivo `env.mjs` ubicado en la raiz de nuestro proyecto. decidi dejar los comentarios de la documentacion por que los  considere como un buen apoyo  al momento de anadir nuevas variables de entorno aun si no has utilizado T3 env antes. Ahora si bien te recomiendo encarecidamente echarle un ojo a la documentacion en su [sitio oficial](https://env.t3.gg/docs/introduction), basta con tomar en cuenta  las siguientes reglas para que todo funcione como esperamos:
+Bien, ahora como definiriamos dichas variables de entorno? el esquema se encuetra en el archivo `env.mjs` ubicado en la raiz de nuestro proyecto. decidi dejar los comentarios de la documentacion por que los considere como un buen apoyo al momento de anadir nuevas variables de entorno aun si no has utilizado T3 env antes. Ahora si bien te recomiendo encarecidamente echarle un ojo a la documentacion en su [sitio oficial](https://env.t3.gg/docs/introduction), basta con tomar en cuenta las siguientes reglas para que todo funcione como esperamos:
 
 - En la propiedad `server:{}` : iran todas las variables que de ninguna manera pueden ser visibles del lado del cliente y que solo le competen al backend de nuestra aplicacion.
-- En la propiedad `client:{}` : Iran todas aquellas propiedades que, si bien tambien pueden ser accedidas desde el backend,  pueden perfectamente ser enviadas al frontend ya que no contienen informacion sensible de la aplicacion, como el nombre del proyecto o el url de la api en produccion
+- En la propiedad `client:{}` : Iran todas aquellas propiedades que, si bien tambien pueden ser accedidas desde el backend, pueden perfectamente ser enviadas al frontend ya que no contienen informacion sensible de la aplicacion, como el nombre del proyecto o el url de la api en produccion
 - La propiedad `runtimeEnv` : aqui tendremos que redefinir las todas nuestras variables de entorno anteriormente declaradas. Esta asociado a como Next.js maneja las variables de entorno. Hay una forma de evitarlo pero lo dejo a tu [eleccion](https://env.t3.gg/docs/nextjs).
 - Luego de declarar el esquema, es muy aconsejable crear un boceto de como se deberia crear dicho archivo `.env` con las variables de entorno que necesita tu proyecto. Y esa es la funcion que cumple `.env.example` que utilizamos recientemente para crear la estructura `.env` facilmente y luego rellenarlo. Apropiate de el y actualizalo a la par de tu esquema `env.mjs`
 
@@ -69,7 +69,7 @@ Puedes ver los comandos definidos en los hooks de Husky en la carpeta **`.husky
 
 Por defecto, next-starter usa **[commitlint](https://commitlint.js.org/#/)**, que ayuda a estandarizar los mensajes de commit de tu proyecto siguiendo el consenso de **[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)**. Esto resulta en un historial de git coherente y fácil de leer.
 
-Ademas de ello, se extendio  el comportamiento de **[commitlint](https://commitlint.js.org/#/)**  en el archivo `commitlint.config.js`  con un par de reglas extras que suelen ir muy bien en la mayoria proyectos, pero como te mencione antes, eres libre de configurarlo de acuerdo a las necesidades de tu proyecto.
+Ademas de ello, se extendio el comportamiento de **[commitlint](https://commitlint.js.org/#/)** en el archivo `commitlint.config.js` con un par de reglas extras que suelen ir muy bien en la mayoria proyectos, pero como te mencione antes, eres libre de configurarlo de acuerdo a las necesidades de tu proyecto.
 
 ### Lint Staged
 
@@ -88,19 +88,16 @@ Si bien la única comprobación que realiza Next-Starter al hacer un `git push` 
 El proyecto cuenta ya con scripts de npm configurados que ejecutaran diferentes tipos de pruebas
 
 - `storybook:test` solo puede ejecutarse cuando `storybook` está abierto. Este comando verificará si cada uno de los stories se renderiza correctamente. En resumen, se trata de una prueba de humo que garantiza que todos estos componentes al menos se rendericen sin complicaciones. Además, si configuramos una [play function](https://storybook.js.org/docs/react/writing-stories/play-function#page-top), también se considerarán como parte de las pruebas, en forma de pruebas de interacción.
-- `e2e:headless` y `e2e:ui` : estas seran pruebas End to End escritas usando [Playwright](https://playwright.dev/) que nos aseguraran que  nuestra aplicacion, o al menos y sus funcionalidades vitales sigan en funcionamiento. 
+- `e2e:headless` y `e2e:ui` : estas seran pruebas End to End escritas usando [Playwright](https://playwright.dev/) que nos aseguraran que nuestra aplicacion, o al menos y sus funcionalidades vitales sigan en funcionamiento.
 
 La diferencia entre uno y otro es que mientras `e2e:headless` nos devolverá en consola directamente los resultados de las pruebas (lo cual es muy conveniente si deseamos añadirlo al hook de pre-push de husky), `e2e:ui` abrirá nuestro navegador predeterminado con una interfaz amigable para auditar cada una de las pruebas y verlas correr.
 
 Para crear nuevas pruebas end to end en nuestro proyecto, simplemente debemos crear un nuevo archivo `name.spec.ts` en la carpeta `e2e/`, que se encuentra en la carpeta raíz del proyecto.
+
 - `test`, `test:ui`, `test:watch` y `test:coverage` son diferentes formas de ejecutar [Vitest](https://vitest.dev/), que sera nuestro framework desigando para hacer unit testing, cada una de ellas más o menos apropiada dependiendo del contexto en el que se ejecuten.
-    
-    Mientras `test:ui` y `test:watch` nos servirán al momento de desarrollar para asegurarnos de que los componentes que estemos desarrollando pasen las pruebas, `test:coverage` en cambio nos indicará el porcentaje de código que está siendo probado por nuestros tests. Por otro lado, `test` efectuará las pruebas, las imprimirá en la terminal y luego finalizará. Este sería el candidato perfecto si deseamos añadirlo a alguno de nuestros hooks.
-    
-    Ademas de ello, ya cuenta con todo lo necesario para hacer pruebas  a componentes de react como `[@testing-library/react](https://testing-library.com/docs/react-testing-library/setup/)` y `[@testing-library/user-event](https://github.com/testing-library/user-event)` ambos ya cofigurados en la carpeta `./src/tests/testing-library` junto a una funcion [Custom Render](https://testing-library.com/docs/react-testing-library/setup/#custom-render) que nos hara mucho mas ameno el proceso de testing.
-    
-    En mi intento por mantener el template lo menos opinated posible y que seas tu quien tome las decisiones importantes, por lo tanto simplemente me limite a colocar tests unitarios de ejemplo justo al lado. Nuevamente, sientete libre de adaptar el template a las necesidades de tu proyecto
-    
+  Mientras `test:ui` y `test:watch` nos servirán al momento de desarrollar para asegurarnos de que los componentes que estemos desarrollando pasen las pruebas, `test:coverage` en cambio nos indicará el porcentaje de código que está siendo probado por nuestros tests. Por otro lado, `test` efectuará las pruebas, las imprimirá en la terminal y luego finalizará. Este sería el candidato perfecto si deseamos añadirlo a alguno de nuestros hooks.
+  Ademas de ello, ya cuenta con todo lo necesario para hacer pruebas a componentes de react como `[@testing-library/react](https://testing-library.com/docs/react-testing-library/setup/)` y `[@testing-library/user-event](https://github.com/testing-library/user-event)` ambos ya cofigurados en la carpeta `./src/tests/testing-library` junto a una funcion [Custom Render](https://testing-library.com/docs/react-testing-library/setup/#custom-render) que nos hara mucho mas ameno el proceso de testing.
+  En mi intento por mantener el template lo menos opinated posible y que seas tu quien tome las decisiones importantes, por lo tanto simplemente me limite a colocar tests unitarios de ejemplo justo al lado. Nuevamente, sientete libre de adaptar el template a las necesidades de tu proyecto
 
 ### BulletProof CI/CD
 

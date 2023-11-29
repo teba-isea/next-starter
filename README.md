@@ -89,19 +89,12 @@ The project already has configured npm scripts that will run different types of 
 
 - `storybook:test`: This can only be executed when `storybook` is open. This command will verify that each of the stories renders correctly. In summary, this is a smoke test that ensures all these components at least render without complications. Moreover, if we set up a [play function](https://storybook.js.org/docs/react/writing-stories/play-function#page-top), they will also be considered as part of the tests, in the form of interaction tests.
 - `e2e:headless` and `e2e:ui`: These will be End to End tests written using [Playwright](https://playwright.dev/) that will ensure our application, or at least its vital functionalities, continue working.
-    
-    The difference between the two is that while `e2e:headless` will return the test results directly in the console (which is very convenient if we want to add it to the pre-push hook of husky), `e2e:ui` will open our default browser with a friendly interface to audit each of the tests and see them run.
-    
-    To create new end-to-end tests in our project, we simply need to create a new `name.spec.ts` file in the `e2e/` folder, which is in the root folder of the project.
-    
+  The difference between the two is that while `e2e:headless` will return the test results directly in the console (which is very convenient if we want to add it to the pre-push hook of husky), `e2e:ui` will open our default browser with a friendly interface to audit each of the tests and see them run.
+  To create new end-to-end tests in our project, we simply need to create a new `name.spec.ts` file in the `e2e/` folder, which is in the root folder of the project.
 - `test`, `test:ui`, `test:watch`, and `test:coverage` are different ways to execute [Vitest](https://vitest.dev/), which will be our designated framework for unit testing, each of them more or less appropriate depending on the context in which they are run.
-    
-    While `test:ui` and `test:watch` will serve us when developing to ensure that the components we are developing pass the tests, `test:coverage` will instead indicate the percentage of code that is being tested by our tests. On the other hand, `test` will perform the tests, print them on the terminal, and then finish. This would be the perfect candidate if we want to add it to any of our hooks.
-    
-    Additionally, it already has everything necessary to test react components such as `@testing-library/react` and `@testing-library/user-event`, both already configured in the `./src/tests/testing-library` folder along with a [Custom Render](https://testing-library.com/docs/react-testing-library/setup/#custom-render) function that will make the testing process more enjoyable.
-    
-    In my attempt to keep the template as unopinionated as possible and let you make the important decisions, I simply limited myself to placing example unit tests right next to it. Again, feel free to adapt the template to the needs of your project.
-    
+  While `test:ui` and `test:watch` will serve us when developing to ensure that the components we are developing pass the tests, `test:coverage` will instead indicate the percentage of code that is being tested by our tests. On the other hand, `test` will perform the tests, print them on the terminal, and then finish. This would be the perfect candidate if we want to add it to any of our hooks.
+  Additionally, it already has everything necessary to test react components such as `@testing-library/react` and `@testing-library/user-event`, both already configured in the `./src/tests/testing-library` folder along with a [Custom Render](https://testing-library.com/docs/react-testing-library/setup/#custom-render) function that will make the testing process more enjoyable.
+  In my attempt to keep the template as unopinionated as possible and let you make the important decisions, I simply limited myself to placing example unit tests right next to it. Again, feel free to adapt the template to the needs of your project.
 
 ### **BulletProof CI/CD**
 

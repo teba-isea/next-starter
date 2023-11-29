@@ -1,0 +1,10 @@
+section {
+  position: relative;
+  text-align: center;
+  text-shadow: -2px 1px rgba(black, 0.1);
+  .bold {
+    display: inline-block;
+    will-change: transform;
+    transition: 0.2s;
+  }
+}
