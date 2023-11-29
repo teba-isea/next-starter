@@ -169,7 +169,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col  rounded border-2 border-dashed border-cyan-400 border-gray-700 p-3">
+          <div className="flex flex-col  rounded border-2 border-dashed border-cyan-400 p-3">
             <h3 className="mb-2 text-lg font-bold">🤩 Want more?</h3>
             <p>
               Don&apos;t hold back! This project could use{" "}
