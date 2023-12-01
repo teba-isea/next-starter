@@ -7,7 +7,10 @@ export const env = createEnv({
    * Will throw if you access these variables on the client.
    */
   server: {
-    TEST_SERVERSIDE_VAR: z.string().min(1),
+    EXAMPLE_ENV_VAR: z.string().min(1),
+    NODE_ENV: z
+      .enum(["development", "test", "production"])
+      .default("development"),
   },
   /*
    * Environment variables available on the client (and server).
@@ -24,7 +27,8 @@ export const env = createEnv({
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
   runtimeEnv: {
+    EXAMPLE_ENV_VAR: process.env.EXAMPLE_ENV_VAR,
     NEXT_PUBLIC_APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
-    TEST_SERVERSIDE_VAR: process.env.TEST_SERVERSIDE_VAR,
   },
+  emptyStringAsUndefined: true,
 });
