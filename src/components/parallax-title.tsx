@@ -1,46 +1,46 @@
-"use client"
-import "./parallax-title.css"
-import React, { useEffect, useRef, useState } from "react"
+"use client";
+import "./parallax-title.css";
+import React, { useEffect, useRef, useState } from "react";
 
 interface Position {
-  x: number
-  y: number
+  x: number;
+  y: number;
 }
 
 export type ParallaxHeroProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export const ParallaxHero = ({ children }: ParallaxHeroProps) => {
-  const [pos, setPos] = useState<Position>({ x: 0, y: 0 })
+  const [pos, setPos] = useState<Position>({ x: 0, y: 0 });
 
-  const sectionRef = useRef<HTMLHeadingElement>(null)
-  const firstWordRef = useRef<HTMLSpanElement>(null)
-  const secondWordRef = useRef<HTMLSpanElement>(null)
+  const sectionRef = useRef<HTMLHeadingElement>(null);
+  const firstWordRef = useRef<HTMLSpanElement>(null);
+  const secondWordRef = useRef<HTMLSpanElement>(null);
 
   const onMouseMove = (e: React.MouseEvent) => {
-    setPos({ x: e.pageX, y: e.pageY })
-  }
+    setPos({ x: e.pageX, y: e.pageY });
+  };
 
   useEffect(() => {
     const createShadow = () => {
-      if ("ontouchstart" in window) return
+      if ("ontouchstart" in window) return;
 
-      let [moveX, moveY] = [pos.x / -140, pos.y / -160]
+      let [moveX, moveY] = [pos.x / -140, pos.y / -160];
 
       if (firstWordRef.current && secondWordRef.current && sectionRef.current) {
         firstWordRef.current.style.transform = `translate3d(${
           moveX / 2
-        }px, ${moveY}px, 0)`
+        }px, ${moveY}px, 0)`;
         secondWordRef.current.style.transform = `translate3d(${
           moveX / 2
-        }px, ${moveY}px, 0)`
-        sectionRef.current.style.textShadow = `${moveX}px ${moveY}px rgba(0, 0, 0, 0.1)`
+        }px, ${moveY}px, 0)`;
+        sectionRef.current.style.textShadow = `${moveX}px ${moveY}px rgba(0, 0, 0, 0.1)`;
       }
-    }
+    };
 
-    createShadow()
-  }, [pos])
+    createShadow();
+  }, [pos]);
 
   return (
     <section
@@ -67,5 +67,5 @@ export const ParallaxHero = ({ children }: ParallaxHeroProps) => {
       </div>
       {children}
     </section>
-  )
-}
+  );
+};

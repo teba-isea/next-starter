@@ -1,5 +1,5 @@
-import React from "react"
-import { cva, VariantProps } from "class-variance-authority"
+import React from "react";
+import { cva, VariantProps } from "class-variance-authority";
 
 export const buttonVariants = cva(
   "rounded font-semibold text-lg font-mono mx-1 text-sm transition-colors",
@@ -20,15 +20,15 @@ export const buttonVariants = cva(
       variant: "primary",
       size: "md",
     },
-  }
-)
+  },
+);
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
-    label: string
-    leftIcon?: React.ReactNode
-    rightIcon?: React.ReactNode
-  }
+    label: string;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
+  };
 /**
  * Primary UI component for user interaction
  */
@@ -51,5 +51,5 @@ export const Button = ({
       {label}
       {rightIcon ? rightIcon : null}
     </button>
-  )
-}
+  );
+};

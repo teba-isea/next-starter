@@ -1,6 +1,7 @@
 {
   "name": "next-starter",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,8 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "storybook:test": "test-storybook",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/types": "^18.4.3",
     "@next/bundle-analyzer": "^14.0.3",
     "@playwright/test": "^1.40.0",
     "@storybook/addon-coverage": "^1.0.0",

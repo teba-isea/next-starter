@@ -1,7 +1,7 @@
-import "../src/styles/tailwind.css"
-import type { Preview } from "@storybook/react"
+import "../src/styles/tailwind.css";
+import type { Preview } from "@storybook/react";
 
-import { withThemeByClassName } from "@storybook/addon-themes"
+import { withThemeByClassName } from "@storybook/addon-themes";
 
 const preview: Preview = {
   parameters: {
@@ -23,6 +23,6 @@ const preview: Preview = {
       defaultTheme: "light",
     }),
   ],
-}
+};
 
-export default preview
+export default preview;

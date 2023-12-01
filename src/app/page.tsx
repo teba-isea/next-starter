@@ -1,7 +1,7 @@
-import { buttonVariants } from "@/components/button"
-import { ParallaxHero } from "@/components/parallax-title"
-import GithubIcon from "@/assets/icons/github.svg"
-import Image from "next/image"
+import { buttonVariants } from "@/components/button";
+import { ParallaxHero } from "@/components/parallax-title";
+import GithubIcon from "@/assets/icons/github.svg";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -205,5 +205,5 @@ export default function Home() {
         </h2>
       </footer>
     </main>
-  )
+  );
 }
